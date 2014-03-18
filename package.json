@@ -1,0 +1,38 @@
+{
+    "name": "hijackdi",
+    "description": "Framework for injecting fake/mocked dependencies in tests",
+    "keywords": [],
+    "contributors": [ 
+        {
+            "name": "Ben Flowers",
+            "email": "ben.j.flowers@gmail.com"
+        },
+        {
+            "name": "Iain Mitchell",
+            "email": "iainjmitchell@gmail.com"
+        }
+  	],
+    "version": "0.0.1",
+    "repository" : { 
+        "type" : "git", 
+        "url" : "http://github.com/benoj/hijackdi"
+    },
+    "licenses": [{
+      "type": "MIT"
+    }],
+    "directories": {
+      "lib": "./lib"
+    },
+    "main": "./lib/hijackdi.js",
+    "devDependencies":{
+        "mocha": "*",
+        "chai" : "*",
+        "gulp" : "*",
+        "gulp-mocha" : "*",
+        "gulp-jshint" : "*",
+        "gulp-git" : "*"
+    },
+    "scripts":{
+        "test": "./node_modules/gulp/bin/gulp.js test"
+    }
+}
