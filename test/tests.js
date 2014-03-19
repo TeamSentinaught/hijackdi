@@ -4,7 +4,6 @@ var Hijackdi = require('../lib/hijackdi.js');
 
 test("When faked, Then fake is not the real implementation",function(done){
 	var hijackdiConfig = {
-		base: __dirname,
 		fakes: {
 			'./fakeDependency.js': function(){
 				done();
