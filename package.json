@@ -30,6 +30,7 @@
         "gulp" : "*",
         "gulp-mocha" : "*",
         "gulp-jshint" : "*",
+        "jshint-stylish": "*",
         "gulp-git" : "*"
     },
     "scripts":{
