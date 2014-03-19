@@ -1,6 +1,6 @@
 {
     "name": "hijackdi",
-    "description": "Framework for injecting fake/mocked dependencies in tests",
+    "description": "Library for injecting fake/mocked dependencies in tests",
     "keywords": [],
     "contributors": [ 
         {
