@@ -36,8 +36,5 @@ test('When multiple items faked, Then all are all dependencies are faked',functi
 				fakeDependency();
 				otherFakeDependency();
 			}).to.not.throw('Not stubbed/mocked');
-			
-
 	});
-
 });
