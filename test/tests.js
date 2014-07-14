@@ -34,16 +34,16 @@ test('When multiple items faked, Then all are all dependencies are faked',functi
 	});
 });
 
-// test('When item is faked, outside sandbox item acts as normal',function(){
-// 	var mocks = {
-// 		'../fakeDependencies/fakeDependency.js': function(){
-// 		}};
+test('When item is faked, outside sandbox item acts as normal',function(){
+	var mocks = {
+		'../fakeDependencies/fakeDependency.js': function(){
+		}};
 
-// 	var hijackdi = new Hijackdi('../fakeDependencies/callsStuff.js');
-// 	hijackdi.sandbox(mocks,function(subject){
-// 	});
-// 	var callsStuff = require('../fakeDependencies/callsStuff.js');
-// 	expect(function(){ 
-// 		callsStuff();
-// 	}).to.throw('Not stubbed/mocked');
-// });
+	var hijackdi = new Hijackdi('../fakeDependencies/callsStuff.js');
+	hijackdi.sandbox(mocks,function(subject){
+	});
+	var callsStuff = require('../fakeDependencies/callsStuff.js');
+	expect(function(){ 
+		callsStuff();
+	}).to.throw('Not stubbed/mocked');
+});
