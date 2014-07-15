@@ -12,7 +12,7 @@ test("when in sandbox, then dependencies and mocked",function(done){
 			done();
 		}};
 
-	var hijackdi = new Hijackdi('../fakeDependencies/callsStuff.js');
+	var hijackdi = new Hijackdi('../fakeDependencies/callsOneDependency.js');
 	hijackdi.sandbox(mocks,function(subject){
 
 		expect(function(){
@@ -26,7 +26,7 @@ test('When multiple items faked, Then all are all dependencies are faked',functi
 			'../fakeDependencies/fakeDependency.js': function(){},
 			'../fakeDependencies/otherFakeDependency.js': function(){}
 		};
-	var hijackdi = new Hijackdi('../fakeDependencies/callsMultiple.js');
+	var hijackdi = new Hijackdi('../fakeDependencies/callsMultipleDependencies.js');
 	hijackdi.sandbox(mocks,function(subject){
 		expect(function(){
 				subject();
@@ -39,11 +39,11 @@ test('When item is faked, outside sandbox item acts as normal',function(){
 		'../fakeDependencies/fakeDependency.js': function(){
 		}};
 
-	var hijackdi = new Hijackdi('../fakeDependencies/callsStuff.js');
+	var hijackdi = new Hijackdi('../fakeDependencies/callsOneDependency.js');
 	hijackdi.sandbox(mocks,function(subject){
 	});
-	var callsStuff = require('../fakeDependencies/callsStuff.js');
+	var callsOneDependency = require('../fakeDependencies/callsOneDependency.js');
 	expect(function(){ 
-		callsStuff();
+		callsOneDependency();
 	}).to.throw('Not stubbed/mocked');
 });
