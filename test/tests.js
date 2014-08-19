@@ -1,28 +1,14 @@
 /*jshint expr:true*/
-require('chai').should();
 var expect = require('chai').expect;
 
 var Hijackdi = require('../lib/hijackdi.js');
 var fakeDependency = require('../fakeDependencies/fakeDependency.js'),
-	otherFakeDependency = require('../fakeDependencies/otherFakeDependency.js');
+	otherFakeDependency = require('../fakeDependencies/otherFakeDependency.js'),
+	callsOneDependency = require('../fakeDependencies/callsOneDependency.js');
 					
 
-test("when in sandbox, then dependencies and mocked",function(done){
-	var mocks = {
-		'../fakeDependencies/fakeDependency.js': function(){
-			done();
-		}};
 
-	var hijackdi = new Hijackdi('../fakeDependencies/callsOneDependency.js');
-	hijackdi.sandbox(mocks,function(subject){
-
-		expect(function(){
-			subject();
-		}).to.not.throw('Not stubbed/mocked');
-	});
-});
-
-test('When multiple items faked, Then all are all dependencies are faked',function(){
+test('When multiple items faked, Then all are all dependencies are faked',function(done){
 	var mocks =  {
 			'../fakeDependencies/fakeDependency.js': function(){},
 			'../fakeDependencies/otherFakeDependency.js': function(){}
@@ -32,6 +18,7 @@ test('When multiple items faked, Then all are all dependencies are faked',functi
 		expect(function(){
 				subject();
 			}).to.not.throw('Not stubbed/mocked');
+		done();
 	});
 });
 
@@ -39,25 +26,36 @@ test('When item is faked, outside sandbox item acts as normal',function(){
 	var mocks = {
 		'../fakeDependencies/fakeDependency.js': function(){
 		}};
-
 	var hijackdi = new Hijackdi('../fakeDependencies/callsOneDependency.js');
 	hijackdi.sandbox(mocks,function(subject){
 	});
-	var callsOneDependency = require('../fakeDependencies/callsOneDependency.js');
 	expect(function(){ 
 		callsOneDependency();
 	}).to.throw('Not stubbed/mocked');
 });
 
-test('When node_module is faked, then sandbox environment works correctly',function(){
+test('When node_module is faked and subject has been previously required, then sandbox environment works correctly',function(){
 	var mocks = {
-		'true': function(){ return false;}
-	},hijackdi = new Hijackdi('../fakeDependencies/returnsTrue.js');
+			'true': function(){ return false;}
+		},
+		before = require('../fakeDependencies/returnsTrue.js'),
+		hijackdi = new Hijackdi('../fakeDependencies/returnsTrue.js');
 	
 	hijackdi.sandbox(mocks,function(subject){
 		expect(subject.value).to.be.false;
 	});
-	var real = require('../fakeDependencies/returnsTrue.js');
-	expect(real.value).to.be.true;
+	expect(before.value).to.be.true;
+});
 
+test('When node_module is faked and subject is required later, then sandbox environment works correctly',function(){
+	var mocks = {
+			'true': function(){ return false;}
+		},
+		hijackdi = new Hijackdi('../fakeDependencies/returnsTrue.js');
+	
+	hijackdi.sandbox(mocks,function(subject){
+		expect(subject.value).to.be.false;
+	});
+	var later = require('../fakeDependencies/returnsTrue.js');
+	expect(later.value).to.be.true;
 });
