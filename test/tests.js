@@ -48,7 +48,3 @@ test('When item is faked, outside sandbox item acts as normal',function(){
 	}).to.throw('Not stubbed/mocked');
 });
 
-// test('bob',function(){
-// 	console.log('asdhasldhasldjasljdba')
-// 	console.log(require.resolve('../lib/hijackdi.js'));
-// });
