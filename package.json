@@ -25,6 +25,7 @@
     },
     "main": "./lib/hijackdi.js",
     "devDependencies":{
+        "true": "*",
         "mocha": "*",
         "chai" : "*",
         "gulp" : "*",

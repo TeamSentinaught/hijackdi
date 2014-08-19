@@ -1,3 +1,4 @@
+/*jshint expr:true*/
 require('chai').should();
 var expect = require('chai').expect;
 
@@ -48,3 +49,15 @@ test('When item is faked, outside sandbox item acts as normal',function(){
 	}).to.throw('Not stubbed/mocked');
 });
 
+test('When node_module is faked, then sandbox environment works correctly',function(){
+	var mocks = {
+		'true': function(){ return false;}
+	},hijackdi = new Hijackdi('../fakeDependencies/returnsTrue.js');
+	
+	hijackdi.sandbox(mocks,function(subject){
+		expect(subject.value).to.be.false;
+	});
+	var real = require('../fakeDependencies/returnsTrue.js');
+	expect(real.value).to.be.true;
+
+});
