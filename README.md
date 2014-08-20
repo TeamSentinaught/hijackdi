@@ -40,7 +40,7 @@ MyClass.js
 ...we could mock, stub or fake out the require(s) using HijackDI.  The test below demonstrates how this is done. 
 
 Test.js
-```javascrpt
+```javascript
     require('chai').should();
     var Hijackdi = require('hijackdi');
     
@@ -64,7 +64,7 @@ The hijack object created has a sandbox method that takes an object literal cont
 
 
 ##API
-```javascrpt
+```javascript
     var HijackDi = require('hijackdi');
     
     /*
