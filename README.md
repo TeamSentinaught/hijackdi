@@ -69,14 +69,15 @@ The hijack object created has a sandbox method that takes an object literal cont
     
     /*
         This constructs a hijackdi object with a subject. The subject will have
-        the dependencies you specify switched for your mocks. Any other                 dependencies will remain intact. 
+        the dependencies you specify switched for your mocks. Any other
+        dependencies will remain intact. 
     */
     var hijackdi = new HijackDi('../lib/MySubjectClass.js');
     
     /*
-        definition of the fake dependencies. These will replace the real object          in the sanbox environment. 
-        
-        To fake out your own objects the key should be the relative path from           the test file. For a node_module just use the module name.
+        definition of the fake dependencies. These will replace the real object
+        in the sanbox environment. To fake out your own objects the key should be the 
+        relative path from the test file. For a node_module just use the module name.
     */
     
     fakes = {
@@ -85,7 +86,9 @@ The hijack object created has a sandbox method that takes an object literal cont
     };
     
     /*
-        Within the sanbox mode redis and ../lib/someDependency.js are switched          out. Any other subdependency will be intact. If another subdependency           ALSO required redis. It will get our fake too.
+        Within the sanbox mode redis and ../lib/someDependency.js are switche out.
+        Any other subdependency will be intact. If another subdependen ALSO required redis,
+        it will get our fake too.
     */
     
     hijackdi.sandbox(fakes,function(MySubjectClass){
