@@ -5,7 +5,7 @@ HijackDI
 
 HijackDI provides a way of mocking, faking or stubbing external dependencies that are loaded via require() in nodejs. 
 
-HijackDi provides a sandbox environment for you to run your tests within. In this envronment node modules or classes which are required are swiched with your fakes or mocks. This works at any level, not just at the subject meaning HikackDi is perfect for integration or unit testing.
+HijackDI provides a sandbox environment for you to run your tests within. In this environment node modules or classes which are required are switched with your fakes or mocks. This works at any level, not just at the subject meaning HikackDI is perfect for integration or unit testing.
 
 See the examples folder for more.
 
