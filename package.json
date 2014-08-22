@@ -2,7 +2,7 @@
     "name": "hijackdi",
     "description": "Library for injecting fake/mocked dependencies in tests",
     "author":"TeamSentinaught",
-    "keywords": [],
+    "keywords": ["require","dependency","injection","di","inject","test","mock","stub","integration","unit","fake"],
     "contributors": [ 
         {
             "name": "Ben Flowers",
