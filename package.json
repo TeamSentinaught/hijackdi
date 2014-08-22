@@ -12,7 +12,7 @@
             "email": "iainjmitchell@gmail.com"
         }
   	],
-    "version": "0.0.1",
+    "version": "1.0.0",
     "repository" : { 
         "type" : "git", 
         "url" : "http://github.com/benoj/hijackdi"
