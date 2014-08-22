@@ -17,9 +17,7 @@
         "type" : "git", 
         "url" : "http://github.com/benoj/hijackdi"
     },
-    "licenses": [{
-      "type": "MIT"
-    }],
+    "license": "MIT",
     "directories": {
       "lib": "./lib"
     },
