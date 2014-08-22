@@ -1,6 +1,7 @@
 {
     "name": "hijackdi",
     "description": "Library for injecting fake/mocked dependencies in tests",
+    "author":"TeamSentinaught",
     "keywords": [],
     "contributors": [ 
         {
