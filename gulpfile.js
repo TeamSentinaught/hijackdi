@@ -10,7 +10,7 @@ gulp.task('mocha', function () {
 		});
 
 	return gulp
-		.src('test/**/*.js')
+		.src('test/*.js')
 		.pipe(mochaRun);
 });
 
